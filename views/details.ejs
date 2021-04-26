@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        
+        .quot{
+            height: 600px;
+            width: 50%;
+            margin: auto;
+            padding: 25px;
+            text-align: center;
+        }
+        .quot img{
+            height: 50%;
+        }
+        .quot h2{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .quot p{
+            margin: 20px 0;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="https://github.com/HamzhSuilik/simpsons-app/blob/main/public/img/the_simpsons.png?raw=true" alt="">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/favorite">Favorite</a></li>
+        </ul>
+    </header>
+    <main>
+       <div class="allQ">
+          
+            <div class="quot">
+                <h2><%= data.character %> </h2>
+                <img src=<%= data.image %>  alt="">
+                <p><%= data.quote %></p>
+                <button class="updateBtn">Update</button>
+                <form action="/delete/<%= data.id %>?_method=delete" method="POST"><input type="submit" value="DELETE"></form>
+                <form  style="display: none;" class="updateForm" action="/update/<%= data.id %>?_method=put " method="POST">
+                <input type="text" name="character" value=<%= data.character %>>
+                <input type="text" name="quote" value='<%= data.quote %>'>
+                <input type="submit" value="save">
+                </form>
+            </div>
+          
+       </div> 
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="../js/details.js"></script>
+</body>
+</html>

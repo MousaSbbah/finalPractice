@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .allQ{
+            display: grid;
+            grid-template-columns: 1fr 1fr ;
+            gap: 30px;
+        }
+        .quot{
+            margin: 30px 0;
+            height:400px ;
+            padding: 25px;
+            text-align: center;
+            background-color: #16a085;
+        }
+        .quot img{
+            height: 50%;
+        }
+        .quot h2{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .quot p{
+            margin: 20px 0;
+        }
+    </style>
+    <title>Favorite</title>
+</head>
+
+<body>
+    <header>
+        <img src="https://github.com/HamzhSuilik/simpsons-app/blob/main/public/img/the_simpsons.png?raw=true" alt="">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/favorite">Favorite</a></li>
+        </ul>
+    </header>
+    <main>
+       <div class="allQ">
+        <div class="left">
+            <% data.forEach(obj => { %>
+                <% if (obj.direction === 'Left') { %>
+                    <div class="quot">
+                        <h2><%= obj.character %> </h2>
+                        <img src=<%= obj.image %>  alt="">
+                        <p><%= obj.quote %></p>
+                        <a href="/favorite/<%= obj.id %> ">More Details</a>
+                    </div>
+                    <% } %>
+                   <% }) %>
+        </div>
+
+        <div class="right">
+            <% data.forEach(obj => { %>
+                <% if (obj.direction === 'Right') { %>
+                    <div class="quot">
+                        <h2><%= obj.character %> </h2>
+                        <img src=<%= obj.image %>  alt="">
+                        <p><%= obj.quote %></p>
+                        <a href="/favorite/<%= obj.id %> ">More Details</a>
+                    </div>
+                    <% } %>
+                   <% }) %>
+        </div>
+
+       </div>
+    </main>
+</body>
+
+</html>
